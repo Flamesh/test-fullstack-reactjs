@@ -1,0 +1,28 @@
+.text-black {
+    color: #000;
+}
+
+.mb-5 {
+    margin-bottom: 50px;
+}
+.font-bold {
+    font-weight: bold;
+}
+.article-meta {
+    border: 1px solid #e1e4e8;
+    padding: 10px;
+    border-radius: 10px;
+}
+.text-20 {
+    font-size: 20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
