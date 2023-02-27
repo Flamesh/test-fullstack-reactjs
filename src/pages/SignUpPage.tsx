@@ -15,7 +15,8 @@ const AddBookPage = () => {
     postRegister(signUpdata)
       .then((res) => {
         token.setToken(ACCESS_TOKEN_KEY, res.data.user.token);
-        navigate('/');
+        toast.success('Register success');
+        navigate('/login');
       })
       .catch((err) => {
         toast.error(
@@ -43,7 +44,7 @@ const AddBookPage = () => {
                 <input
                   className="form-control form-control-lg"
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Your Username"
                   name="username"
                   value={signUpdata.username}
                   onChange={onChangeSignUpData}

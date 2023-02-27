@@ -4,14 +4,13 @@ import { useUpdateBookMutation, useGetBookQueries } from '@/queries/books.query'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { renderError } from '@/lib/utils/checkError';
-import { useEffect } from 'react';
 
 const UpdateBookPage = () => {
   const slug = useLocation().pathname.split('/')[2];
 
   const [book] = useGetBookQueries(slug);
 
-  const [bookData, onChangeBookData, setBookData] = useInputs({
+  const [bookData, onChangeBookData] = useInputs({
     title: book.data.book.title,
     author: book.data.book.author,
     ISBN: book.data.book.ISBN,
@@ -24,7 +23,7 @@ const UpdateBookPage = () => {
     updateBookMutation.mutate(
       { ...bookData, ISBN: Number(bookData.ISBN), slug },
       {
-        onSuccess: (data) => {
+        onSuccess: () => {
           toast.success('Update book success');
           setTimeout(() => {
             navigate('/');

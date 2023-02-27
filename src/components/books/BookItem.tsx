@@ -16,7 +16,7 @@ const BookItem = ({ book }: IBookProps) => {
     deleteBookMutation.mutate(
       { slug },
       {
-        onSuccess: (data) => {
+        onSuccess: () => {
           toast.success('Delete book success');
           window.location.reload();
         },
